@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Tdha3PbyIMsdYLGhC9CotYWgTSCCFRau8dDiiYE4RZV5pR3F/3///lwreCM80RV4Yt5TuKVVgo8LlM5RHscq6w==",
+  "success": true,
+  "projectFilePath": "C:\\PROJECTS\\Fintranet\\CongestionTaxCalculator\\src\\Domain\\Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.9\\microsoft.windowsdesktop.app.ref.7.0.9.nupkg.sha512",
+    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.9\\microsoft.netcore.app.ref.7.0.9.nupkg.sha512",
+    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.9\\microsoft.aspnetcore.app.ref.7.0.9.nupkg.sha512"
+  ],
+  "logs": []
+}
