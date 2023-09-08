@@ -1,0 +1,12 @@
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\bin\Debug\net7.0\Domain.deps.json
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\bin\Debug\net7.0\Domain.dll
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\bin\Debug\net7.0\Domain.pdb
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\obj\Debug\net7.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\obj\Debug\net7.0\Domain.AssemblyInfoInputs.cache
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\obj\Debug\net7.0\Domain.AssemblyInfo.cs
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\obj\Debug\net7.0\Domain.csproj.CoreCompileInputs.cache
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\obj\Debug\net7.0\Domain.sourcelink.json
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\obj\Debug\net7.0\Domain.dll
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\obj\Debug\net7.0\refint\Domain.dll
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\obj\Debug\net7.0\Domain.pdb
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Domain\obj\Debug\net7.0\ref\Domain.dll
