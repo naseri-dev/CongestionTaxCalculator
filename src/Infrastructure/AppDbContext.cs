@@ -1,6 +1,5 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Infrastructure
 {
@@ -19,7 +18,10 @@ namespace Infrastructure
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Holiday> Holidays { get; set; }
         public DbSet<TaxFeePerHour> TaxFeePerHours { get; set; }
-        
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<VehicleCategory> VehicleCategories { get; set; }
+        public DbSet<TollFreeVehicle> TollFreeVehicles { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);

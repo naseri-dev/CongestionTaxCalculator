@@ -38,6 +38,18 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "VehicleCategories",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_VehicleCategories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Years",
                 columns: table => new
                 {
@@ -64,6 +76,26 @@ namespace Infrastructure.Migrations
                         name: "FK_Cities_Countries_CountryId",
                         column: x => x.CountryId,
                         principalTable: "Countries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Cars",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    PlateNumber = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
+                    VehicleCategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IsTollFree = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cars", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cars_VehicleCategories_VehicleCategoryId",
+                        column: x => x.VehicleCategoryId,
+                        principalTable: "VehicleCategories",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -178,11 +210,37 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TollFreeVehicles",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CarId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TollFreeVehicles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TollFreeVehicles_Cars_CarId",
+                        column: x => x.CarId,
+                        principalTable: "Cars",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TollFreeVehicles_Cities_CityId",
+                        column: x => x.CityId,
+                        principalTable: "Cities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TaxPaids",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TollingStationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CarId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -190,12 +248,23 @@ namespace Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_TaxPaids", x => x.Id);
                     table.ForeignKey(
+                        name: "FK_TaxPaids_Cars_CarId",
+                        column: x => x.CarId,
+                        principalTable: "Cars",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
                         name: "FK_TaxPaids_TollingStations_TollingStationId",
                         column: x => x.TollingStationId,
                         principalTable: "TollingStations",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Cars_VehicleCategoryId",
+                table: "Cars",
+                column: "VehicleCategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Cities_CountryId",
@@ -238,9 +307,24 @@ namespace Infrastructure.Migrations
                 column: "YearId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_TaxPaids_CarId",
+                table: "TaxPaids",
+                column: "CarId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TaxPaids_TollingStationId",
                 table: "TaxPaids",
                 column: "TollingStationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TollFreeVehicles_CarId",
+                table: "TollFreeVehicles",
+                column: "CarId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TollFreeVehicles_CityId",
+                table: "TollFreeVehicles",
+                column: "CityId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TollingStations_CityId",
@@ -264,6 +348,9 @@ namespace Infrastructure.Migrations
                 name: "TaxPaids");
 
             migrationBuilder.DropTable(
+                name: "TollFreeVehicles");
+
+            migrationBuilder.DropTable(
                 name: "Currencies");
 
             migrationBuilder.DropTable(
@@ -273,7 +360,13 @@ namespace Infrastructure.Migrations
                 name: "TollingStations");
 
             migrationBuilder.DropTable(
+                name: "Cars");
+
+            migrationBuilder.DropTable(
                 name: "Cities");
+
+            migrationBuilder.DropTable(
+                name: "VehicleCategories");
 
             migrationBuilder.DropTable(
                 name: "Countries");

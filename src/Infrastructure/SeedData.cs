@@ -269,6 +269,49 @@ public static class SeedData
                     }
                 }
                     );
+
+                var vehicleCategories = new List<VehicleCategory>();
+                vehicleCategories.Add(new VehicleCategory { Id = Guid.NewGuid(), Name = "Emergency" });
+                vehicleCategories.Add(new VehicleCategory { Id = Guid.NewGuid(), Name = "Bus" });
+                vehicleCategories.Add(new VehicleCategory { Id = Guid.NewGuid(), Name = "Diplomat" });
+                vehicleCategories.Add(new VehicleCategory { Id = Guid.NewGuid(), Name = "Motorcycle" });
+                vehicleCategories.Add(new VehicleCategory { Id = Guid.NewGuid(), Name = "Military" });
+                vehicleCategories.Add(new VehicleCategory { Id = Guid.NewGuid(), Name = "Foreign" });
+                vehicleCategories.Add(new VehicleCategory { Id = Guid.NewGuid(), Name = "Tractor" });
+                vehicleCategories.Add(new VehicleCategory { Id = Guid.NewGuid(), Name = "Personal" }); //7
+                vehicleCategories.Add(new VehicleCategory { Id = Guid.NewGuid(), Name = "Taxi" });
+
+                dbContext.VehicleCategories.AddRange(vehicleCategories);
+
+                var cars = new List<Car>();
+                cars.Add(new Car("ABC 123",vehicleCategories[0].Id,true));
+                cars.Add(new Car("BAD 12A",vehicleCategories[1].Id,true));
+                cars.Add(new Car("ASE 52D",vehicleCategories[2].Id,true));
+                cars.Add(new Car("GHF 54G",vehicleCategories[3].Id,true));
+                cars.Add(new Car("KJH 54A",vehicleCategories[4].Id,true));
+                cars.Add(new Car("HGJ 5GQ",vehicleCategories[5].Id,true));
+                cars.Add(new Car("TSD 45J",vehicleCategories[6].Id,true));
+
+                cars.Add(new Car("MBV 14S",vehicleCategories[7].Id,false));
+                cars.Add(new Car("GHY 57W",vehicleCategories[8].Id,false));
+                cars.Add(new Car("SXD 16Q",vehicleCategories[7].Id,false));
+                cars.Add(new Car("LKU 2PE",vehicleCategories[7].Id,false));
+
+                dbContext.Cars.AddRange(cars);
+
+                dbContext.TollFreeVehicles.AddRange(new List<TollFreeVehicle>
+                {
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[0].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[1].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[2].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[3].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[4].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[5].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[6].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[7].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[8].Id},
+
+                });
             }
 
             dbContext.SaveChanges();
