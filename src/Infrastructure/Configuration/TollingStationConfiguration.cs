@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.TollingStations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

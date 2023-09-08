@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Domain.Entities.MaximumTaxes;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
