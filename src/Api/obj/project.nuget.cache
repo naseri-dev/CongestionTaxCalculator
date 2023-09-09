@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+2KkRfMgH/uHTVisO+n/UNSqx7CKLNO10H9Z/mWWVl5mv+S83ZLGeG0YficqhIn100VD0dBCJYnHRC8xKEcD0Q==",
+  "dgSpecHash": "WcPcDUBfTu6YpmTF+ciOSo/r9ClfdEIS4MrU7+Z1EIdOgQ75Z4Y5/+ej84+AWOicJVOa/pltFCqSKfe4vmTqEQ==",
   "success": true,
   "projectFilePath": "C:\\PROJECTS\\Fintranet\\CongestionTaxCalculator\\src\\Api\\Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
@@ -13,7 +14,7 @@
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.2\\microsoft.data.sqlclient.5.0.2.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.10\\microsoft.entityframeworkcore.7.0.10.nupkg.sha512",
@@ -62,6 +63,7 @@
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\system.identitymodel.tokens.jwt\\6.21.0\\system.identitymodel.tokens.jwt.6.21.0.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\system.io\\4.3.0\\system.io.4.3.0.nupkg.sha512",
+    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\system.linq.dynamic.core\\1.3.4\\system.linq.dynamic.core.1.3.4.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\system.memory.data\\1.0.2\\system.memory.data.1.0.2.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",

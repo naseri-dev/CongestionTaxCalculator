@@ -6,7 +6,6 @@ namespace Domain.SeedWork
     {
         IQueryable<T> Get(
           Expression<Func<T, bool>> filter = null,
-          bool deleted = false,
           List<string> orderByFields = null,
           List<bool> orderByDescs = null,
           int pageIndex = 0,
@@ -23,9 +22,9 @@ namespace Domain.SeedWork
 
         bool Any(Expression<Func<T, bool>> filter);
 
-        Task<long> CountAsync(Expression<Func<T, bool>> filter = null, bool deleted = false);
+        Task<long> CountAsync(Expression<Func<T, bool>> filter = null);
 
-        long Count(Expression<Func<T, bool>> filter = null, bool deleted = false);
+        long Count(Expression<Func<T, bool>> filter = null);
 
         T SingleOrDefault(Expression<Func<T, bool>> predicate);
 

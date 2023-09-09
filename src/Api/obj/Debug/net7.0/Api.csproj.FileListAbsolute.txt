@@ -63,7 +63,6 @@ C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\obj\Debug\net7.0\Api.Gener
 C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\obj\Debug\net7.0\Api.AssemblyInfoInputs.cache
 C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\obj\Debug\net7.0\Api.AssemblyInfo.cs
 C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\obj\Debug\net7.0\Api.csproj.CoreCompileInputs.cache
-C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\obj\Debug\net7.0\Api.MvcApplicationPartsAssemblyInfo.cs
 C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\obj\Debug\net7.0\Api.MvcApplicationPartsAssemblyInfo.cache
 C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\obj\Debug\net7.0\Api.sourcelink.json
 C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\obj\Debug\net7.0\staticwebassets.build.json
@@ -85,3 +84,5 @@ C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\bin\Debug\net7.0\Microsoft
 C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\bin\Debug\net7.0\Mono.TextTemplating.dll
 C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\bin\Debug\net7.0\System.CodeDom.dll
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\bin\Debug\net7.0\AutoMapper.dll
+C:\PROJECTS\Fintranet\CongestionTaxCalculator\src\Api\bin\Debug\net7.0\System.Linq.Dynamic.Core.dll
