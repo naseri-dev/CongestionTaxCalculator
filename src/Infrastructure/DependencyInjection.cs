@@ -1,6 +1,8 @@
 ﻿using Domain;
 using Domain.Entities.Countries;
+using Domain.SeedWork;
 using Infrastructure.Domain.Countries;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +25,8 @@ public static class DependencyInjection
         services.AddScoped<ICountryWriteRepository, CountryWriteRepository>();
         services.AddScoped<IReadUnitOfWork, ReadUnitOfWork>();
         services.AddScoped<IWriteUnitOfWork, WriteUnitOfWork>();
+
+        services.AddScoped<ITaxService, CongestionTaxService>();
 
         services.AddScoped<AppDbContext>();
 

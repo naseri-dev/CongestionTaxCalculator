@@ -3,7 +3,7 @@
     public class TollFreeVehicleDto
     {
         public Guid Id { get; set; }
-        public Guid CarId { get; set; }
+        public Guid VehicleCategoryId { get; set; }
         public Guid CityId { get; set; }
     }
 }

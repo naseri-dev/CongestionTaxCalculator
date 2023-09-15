@@ -11,5 +11,13 @@ namespace Infrastructure.Domain.Holidays
         {
             _mapper = mapper;
         }
+        public async Task<List<DateTime>> GetHolidays(int year, Guid countryId)
+        {
+            return await GetAll()
+                .Include(y => y.Year)
+                .Where(x => x.Year.Value == year && x.CountryId == countryId)
+                .Select(x => x.Date)
+                .ToListAsync();
+        }
     }
 }

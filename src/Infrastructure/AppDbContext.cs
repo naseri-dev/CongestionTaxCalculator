@@ -4,8 +4,8 @@ using Domain.Entities.Countries;
 using Domain.Entities.Currencies;
 using Domain.Entities.Holidays;
 using Domain.Entities.MaximumTaxes;
+using Domain.Entities.StationPasses;
 using Domain.Entities.TaxFeePerHours;
-using Domain.Entities.TaxPaids;
 using Domain.Entities.TollFreeVehicles;
 using Domain.Entities.TollingStations;
 using Domain.Entities.VehicleCategories;
@@ -25,7 +25,7 @@ namespace Infrastructure
         public DbSet<MaximumTax> MaximumTaxes { get; set; }
         public DbSet<Year> Years { get; set; }
         public DbSet<TollingStation> TollingStations { get; set; }
-        public DbSet<TaxPaid> TaxPaids { get; set; }
+        public DbSet<StationPass> StationPasses { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Holiday> Holidays { get; set; }
         public DbSet<TaxFeePerHour> TaxFeePerHours { get; set; }

@@ -4,8 +4,8 @@ using Domain.Entities.Countries;
 using Domain.Entities.Currencies;
 using Domain.Entities.Holidays;
 using Domain.Entities.MaximumTaxes;
+using Domain.Entities.StationPasses;
 using Domain.Entities.TaxFeePerHours;
-using Domain.Entities.TaxPaids;
 using Domain.Entities.TollFreeVehicles;
 using Domain.Entities.TollingStations;
 using Domain.Entities.VehicleCategories;
@@ -23,7 +23,7 @@ namespace Domain
         IHolidayReadRepository HolidayReadRepository { get; }
         IMaximumTaxReadRepository MaximumTaxReadRepository { get; }
         ITaxFeePerHourReadRepository TaxFeePerHourReadRepository { get; }
-        ITaxPaidReadRepository TaxPaidReadRepository { get; }
+        IStationPassReadRepository StationPassReadRepository { get; }
         ITollFreeVehicleReadRepository TollFreeVehicleReadRepository { get; }
         ITollingStationReadRepository TollingStationReadRepository { get; }
         IVehicleCategoryReadRepository VehicleCategoryReadRepository { get; }

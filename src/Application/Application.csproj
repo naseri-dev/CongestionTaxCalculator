@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <Folder Include="Cars\Commands\" />
-    <Folder Include="Cars\Queries\" />
     <Folder Include="Cities\Commands\" />
     <Folder Include="Cities\Queries\" />
     <Folder Include="Currencies\Commands\" />

@@ -5,8 +5,8 @@ using Domain.Entities.Countries;
 using Domain.Entities.Currencies;
 using Domain.Entities.Holidays;
 using Domain.Entities.MaximumTaxes;
+using Domain.Entities.StationPasses;
 using Domain.Entities.TaxFeePerHours;
-using Domain.Entities.TaxPaids;
 using Domain.Entities.TollFreeVehicles;
 using Domain.Entities.TollingStations;
 using Domain.Entities.VehicleCategories;
@@ -17,8 +17,8 @@ using Infrastructure.Domain.Countries;
 using Infrastructure.Domain.Currencies;
 using Infrastructure.Domain.Holidays;
 using Infrastructure.Domain.MaximumTaxes;
+using Infrastructure.Domain.StationPasses;
 using Infrastructure.Domain.TaxFeePerHours;
-using Infrastructure.Domain.TaxPaids;
 using Infrastructure.Domain.TollFreeVehicles;
 using Infrastructure.Domain.TollingStations;
 using Infrastructure.Domain.VehicleCategories;
@@ -89,12 +89,12 @@ namespace Infrastructure
                 return _taxFeePerHourWriteRepository ??= new TaxFeePerHourWriteRepository(DbContext());
             }
         }
-        private TaxPaidWriteRepository _taxPaidWriteRepository;
-        public ITaxPaidWriteRepository TaxPaidWriteRepository
+        private StationPassWriteRepository _taxPaidWriteRepository;
+        public IStationPassWriteRepository StationPassWriteRepository
         {
             get
             {
-                return _taxPaidWriteRepository ??= new TaxPaidWriteRepository(DbContext());
+                return _taxPaidWriteRepository ??= new StationPassWriteRepository(DbContext());
             }
         }
         private TollFreeVehicleWriteRepository _tollFreeVehicleWriteRepository;

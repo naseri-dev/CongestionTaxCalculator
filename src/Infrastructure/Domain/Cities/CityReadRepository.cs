@@ -11,5 +11,10 @@ namespace Infrastructure.Domain.Cities
         {
             _mapper = mapper;
         }
+
+        public async Task<City> GetByIdAsync(Guid id)
+        {
+            return await GetAll().Where(x => x.Id == id).FirstOrDefaultAsync();
+        }
     }
 }

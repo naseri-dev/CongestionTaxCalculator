@@ -4,6 +4,7 @@ using Domain.Entities.Countries;
 using Domain.Entities.Currencies;
 using Domain.Entities.Holidays;
 using Domain.Entities.MaximumTaxes;
+using Domain.Entities.StationPasses;
 using Domain.Entities.TaxFeePerHours;
 using Domain.Entities.TollFreeVehicles;
 using Domain.Entities.TollingStations;
@@ -12,6 +13,7 @@ using Domain.Entities.Years;
 using Domain.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Globalization;
 
 namespace Infrastructure;
 
@@ -257,24 +259,24 @@ public static class SeedData
                            });
                 }
 
-                Guid northGuid = Guid.NewGuid();
-                Guid stGuid = Guid.NewGuid();
+                Guid gateOneId = Guid.NewGuid();
+                Guid gateTwoId = Guid.NewGuid();
                 dbContext.TollingStations.AddRange(new List<TollingStation>
                 {
                     new TollingStation
                     {
                         Name = "Göteborg (Gothenburg) - North",
                         CityId = cityId,
-                        Id = northGuid
+                        Id = gateOneId
                     },
                     new TollingStation
                     {
                         Name = "Göteborg (Gothenburg) - St12",
                         CityId = cityId,
-                        Id = stGuid
+                        Id = gateTwoId
                     }
                 }
-                    );
+                );
 
                 var vehicleCategories = new List<VehicleCategory>();
                 vehicleCategories.Add(new VehicleCategory { Id = Guid.NewGuid(), Name = "Emergency" });
@@ -290,36 +292,69 @@ public static class SeedData
                 dbContext.VehicleCategories.AddRange(vehicleCategories);
 
                 var cars = new List<Car>();
-                cars.Add(new Car("ABC 123",vehicleCategories[0].Id,true));
-                cars.Add(new Car("BAD 12A",vehicleCategories[1].Id,true));
-                cars.Add(new Car("ASE 52D",vehicleCategories[2].Id,true));
-                cars.Add(new Car("GHF 54G",vehicleCategories[3].Id,true));
-                cars.Add(new Car("KJH 54A",vehicleCategories[4].Id,true));
-                cars.Add(new Car("HGJ 5GQ",vehicleCategories[5].Id,true));
-                cars.Add(new Car("TSD 45J",vehicleCategories[6].Id,true));
+                cars.Add(new Car("ABC 123", vehicleCategories[0].Id, true));
+                cars.Add(new Car("BAD 12A", vehicleCategories[1].Id, true));
+                cars.Add(new Car("ASE 52D", vehicleCategories[2].Id, true));
+                cars.Add(new Car("GHF 54G", vehicleCategories[3].Id, true));
+                cars.Add(new Car("KJH 54A", vehicleCategories[4].Id, true));
+                cars.Add(new Car("HGJ 5GQ", vehicleCategories[5].Id, true));
+                cars.Add(new Car("TSD 45J", vehicleCategories[6].Id, true));
 
-                cars.Add(new Car("MBV 14S",vehicleCategories[7].Id,false));
-                cars.Add(new Car("GHY 57W",vehicleCategories[8].Id,false));
-                cars.Add(new Car("SXD 16Q",vehicleCategories[7].Id,false));
-                cars.Add(new Car("LKU 2PE",vehicleCategories[7].Id,false));
+                cars.Add(new Car("MBV 14S", vehicleCategories[7].Id, false));
+                cars.Add(new Car("GHY 57W", vehicleCategories[8].Id, false));
+                cars.Add(new Car("SXD 16Q", vehicleCategories[7].Id, false));
+                cars.Add(new Car("LKU 2PE", vehicleCategories[7].Id, false));
 
                 dbContext.Cars.AddRange(cars);
 
                 dbContext.TollFreeVehicles.AddRange(new List<TollFreeVehicle>
                 {
-                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[0].Id},
-                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[1].Id},
-                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[2].Id},
-                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[3].Id},
-                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[4].Id},
-                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[5].Id},
-                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[6].Id},
-                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[7].Id},
-                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,CarId = cars[8].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,VehicleCategoryId = vehicleCategories[0].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,VehicleCategoryId = vehicleCategories[1].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,VehicleCategoryId = vehicleCategories[2].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,VehicleCategoryId = vehicleCategories[3].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,VehicleCategoryId = vehicleCategories[4].Id},
+                    new TollFreeVehicle{ Id = Guid.NewGuid(),CityId = cityId,VehicleCategoryId = vehicleCategories[5].Id}
 
                 });
+                CultureInfo provider = new CultureInfo("en-US");
+                string format = "yyyy-MM-dd HH:mm:ss";
+                dbContext.StationPasses.AddRange(
+                    // "2013-01-14 21:00:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-01-14 21:00:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-01-15 21:00:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-01-15 21:00:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-07 06:23:27"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-07 06:23:27", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-07 15:27:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-07 15:27:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-08 06:27:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-08 06:27:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-08 06:20:27"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-08 06:20:27", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-08 14:35:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-08 14:35:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-08 15:29:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-08 15:29:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-08 15:47:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-08 15:47:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-08 16:01:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-08 16:01:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-08 16:48:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-08 16:48:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-08 17:49:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-08 17:49:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-08 18:29:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-08 18:29:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-02-08 18:35:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-02-08 18:35:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-03-26 14:25:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-03-26 14:25:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-03-26 14:25:00"
+                    new StationPass { Date = DateTime.ParseExact("2013-03-26 14:25:00", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id },
+                    // "2013-03-28 14:07:27"
+                    new StationPass { Date = DateTime.ParseExact("2013-03-28 14:07:27", format, provider), TollingStationId = gateOneId, Id = Guid.NewGuid(), CarId = cars[7].Id });
             }
-
             dbContext.SaveChanges();
         }
     }

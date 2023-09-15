@@ -2,15 +2,14 @@
 using Domain.Entities.TollingStations;
 using Domain.SeedWork;
 
-namespace Domain.Entities.TaxPaids
+namespace Domain.Entities.StationPasses
 {
-    public class TaxPaid : BaseEntity
+    public class StationPass : BaseEntity
     {
         public TollingStation TollingStation { get; set; }
         public Guid TollingStationId { get; set; }
         public Guid CarId { get; set; }
         public Car Car { get; set; }
-        public decimal Amount { get; set; }
         public DateTime Date { get; set; }
     }
 }

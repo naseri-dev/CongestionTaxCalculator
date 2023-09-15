@@ -11,5 +11,13 @@ namespace Infrastructure.Domain.MaximumTaxes
         {
             _mapper = mapper;
         }
+
+        public async Task<decimal> GetMaximumTaxReadAsync(Guid cityId)
+        {
+            return await GetAll()
+                .Where(x => x.CityId == cityId)
+                .Select(x => x.Amount)
+                .FirstOrDefaultAsync();
+        }
     }
 }

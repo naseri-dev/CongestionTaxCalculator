@@ -11,5 +11,10 @@ namespace Infrastructure.Domain.Cars
         {
             _mapper = mapper;
         }
+        public async Task<Car> GetCar(Guid id) =>
+            await
+             GetAll()
+            .Include(x => x.VehicleCategory)
+            .FirstOrDefaultAsync(x => x.Id == id);
     }
 }

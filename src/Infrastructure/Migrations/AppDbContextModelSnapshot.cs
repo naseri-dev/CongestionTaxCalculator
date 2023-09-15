@@ -196,6 +196,36 @@ namespace Infrastructure.Migrations
                     b.ToTable("MaximumTaxes");
                 });
 
+            modelBuilder.Entity("Domain.Entities.StationPasses.StationPass", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CarId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Deleted")
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("TollingStationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("TollingStationId");
+
+                    b.ToTable("StationPasses");
+                });
+
             modelBuilder.Entity("Domain.Entities.TaxFeePerHours.TaxFeePerHour", b =>
                 {
                     b.Property<Guid>("Id")
@@ -243,46 +273,10 @@ namespace Infrastructure.Migrations
                     b.ToTable("TaxFeePerHours");
                 });
 
-            modelBuilder.Entity("Domain.Entities.TaxPaids.TaxPaid", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<Guid>("CarId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
-
-                    b.Property<Guid>("TollingStationId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CarId");
-
-                    b.HasIndex("TollingStationId");
-
-                    b.ToTable("TaxPaids");
-                });
-
             modelBuilder.Entity("Domain.Entities.TollFreeVehicles.TollFreeVehicle", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CarId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CityId")
@@ -294,11 +288,14 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("UpdatedDateTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<Guid>("VehicleCategoryId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CarId");
-
                     b.HasIndex("CityId");
+
+                    b.HasIndex("VehicleCategoryId");
 
                     b.ToTable("TollFreeVehicles");
                 });
@@ -433,6 +430,25 @@ namespace Infrastructure.Migrations
                     b.Navigation("Year");
                 });
 
+            modelBuilder.Entity("Domain.Entities.StationPasses.StationPass", b =>
+                {
+                    b.HasOne("Domain.Entities.Cars.Car", "Car")
+                        .WithMany()
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Domain.Entities.TollingStations.TollingStation", "TollingStation")
+                        .WithMany()
+                        .HasForeignKey("TollingStationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Car");
+
+                    b.Navigation("TollingStation");
+                });
+
             modelBuilder.Entity("Domain.Entities.TaxFeePerHours.TaxFeePerHour", b =>
                 {
                     b.HasOne("Domain.Entities.Cities.City", "City")
@@ -460,42 +476,23 @@ namespace Infrastructure.Migrations
                     b.Navigation("Year");
                 });
 
-            modelBuilder.Entity("Domain.Entities.TaxPaids.TaxPaid", b =>
-                {
-                    b.HasOne("Domain.Entities.Cars.Car", "Car")
-                        .WithMany()
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Domain.Entities.TollingStations.TollingStation", "TollingStation")
-                        .WithMany()
-                        .HasForeignKey("TollingStationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Car");
-
-                    b.Navigation("TollingStation");
-                });
-
             modelBuilder.Entity("Domain.Entities.TollFreeVehicles.TollFreeVehicle", b =>
                 {
-                    b.HasOne("Domain.Entities.Cars.Car", "Car")
-                        .WithMany()
-                        .HasForeignKey("CarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Entities.Cities.City", "City")
                         .WithMany()
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Car");
+                    b.HasOne("Domain.Entities.VehicleCategories.VehicleCategory", "VehicleCategory")
+                        .WithMany()
+                        .HasForeignKey("VehicleCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("City");
+
+                    b.Navigation("VehicleCategory");
                 });
 
             modelBuilder.Entity("Domain.Entities.TollingStations.TollingStation", b =>

@@ -6,8 +6,8 @@ using Domain.Entities.Countries;
 using Domain.Entities.Currencies;
 using Domain.Entities.Holidays;
 using Domain.Entities.MaximumTaxes;
+using Domain.Entities.StationPasses;
 using Domain.Entities.TaxFeePerHours;
-using Domain.Entities.TaxPaids;
 using Domain.Entities.TollFreeVehicles;
 using Domain.Entities.TollingStations;
 using Domain.Entities.VehicleCategories;
@@ -18,8 +18,8 @@ using Infrastructure.Domain.Countries;
 using Infrastructure.Domain.Currencies;
 using Infrastructure.Domain.Holidays;
 using Infrastructure.Domain.MaximumTaxes;
+using Infrastructure.Domain.StationPasses;
 using Infrastructure.Domain.TaxFeePerHours;
-using Infrastructure.Domain.TaxPaids;
 using Infrastructure.Domain.TollFreeVehicles;
 using Infrastructure.Domain.TollingStations;
 using Infrastructure.Domain.VehicleCategories;
@@ -97,12 +97,12 @@ namespace Infrastructure
             }
         }
 
-        private TaxPaidReadRepository _taxPaidReadRepository;
-        public ITaxPaidReadRepository TaxPaidReadRepository
+        private StationPassReadRepository _taxPaidReadRepository;
+        public IStationPassReadRepository StationPassReadRepository
         {
             get
             {
-                return _taxPaidReadRepository ?? new TaxPaidReadRepository(DbContext(), _mapper);
+                return _taxPaidReadRepository ?? new StationPassReadRepository(DbContext(), _mapper);
             }
         }
 

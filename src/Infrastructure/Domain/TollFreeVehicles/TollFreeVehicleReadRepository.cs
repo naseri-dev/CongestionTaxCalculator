@@ -11,5 +11,10 @@ namespace Infrastructure.Domain.TollFreeVehicles
         {
             _mapper = mapper;
         }
+
+        public async Task<bool> IsTollFreeVehicle(Guid vehicleCategoryId)
+        {
+            return await AnyAsync(x => x.VehicleCategoryId == vehicleCategoryId);
+        }
     }
 }

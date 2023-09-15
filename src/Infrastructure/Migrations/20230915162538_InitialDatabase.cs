@@ -16,7 +16,9 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,7 +32,9 @@ namespace Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Code = table.Column<string>(type: "nvarchar(4)", maxLength: 4, nullable: false),
-                    Symbol = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false)
+                    Symbol = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -42,7 +46,9 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,7 +60,9 @@ namespace Infrastructure.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Value = table.Column<int>(type: "int", maxLength: 4, nullable: false)
+                    Value = table.Column<int>(type: "int", maxLength: 4, nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,7 +75,9 @@ namespace Infrastructure.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(250)", maxLength: 250, nullable: false),
-                    CountryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    CountryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -87,7 +97,9 @@ namespace Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     PlateNumber = table.Column<string>(type: "nvarchar(14)", maxLength: 14, nullable: false),
                     VehicleCategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    IsTollFree = table.Column<bool>(type: "bit", nullable: false)
+                    IsTollFree = table.Column<bool>(type: "bit", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -108,7 +120,9 @@ namespace Infrastructure.Migrations
                     YearId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CountryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    HolidayType = table.Column<int>(type: "int", nullable: false)
+                    HolidayType = table.Column<int>(type: "int", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -134,7 +148,9 @@ namespace Infrastructure.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     YearId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -165,7 +181,9 @@ namespace Infrastructure.Migrations
                     TaxAmount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     YearId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CurrencyId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    CityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -191,12 +209,41 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "TollFreeVehicles",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    VehicleCategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TollFreeVehicles", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_TollFreeVehicles_Cities_CityId",
+                        column: x => x.CityId,
+                        principalTable: "Cities",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_TollFreeVehicles_VehicleCategories_VehicleCategoryId",
+                        column: x => x.VehicleCategoryId,
+                        principalTable: "VehicleCategories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "TollingStations",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -210,51 +257,27 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TollFreeVehicles",
-                columns: table => new
-                {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CarId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CityId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TollFreeVehicles", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_TollFreeVehicles_Cars_CarId",
-                        column: x => x.CarId,
-                        principalTable: "Cars",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_TollFreeVehicles_Cities_CityId",
-                        column: x => x.CityId,
-                        principalTable: "Cities",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TaxPaids",
+                name: "StationPasses",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     TollingStationId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CarId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Amount = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedDateTime = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Deleted = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TaxPaids", x => x.Id);
+                    table.PrimaryKey("PK_StationPasses", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_TaxPaids_Cars_CarId",
+                        name: "FK_StationPasses_Cars_CarId",
                         column: x => x.CarId,
                         principalTable: "Cars",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_TaxPaids_TollingStations_TollingStationId",
+                        name: "FK_StationPasses_TollingStations_TollingStationId",
                         column: x => x.TollingStationId,
                         principalTable: "TollingStations",
                         principalColumn: "Id",
@@ -292,6 +315,16 @@ namespace Infrastructure.Migrations
                 column: "YearId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_StationPasses_CarId",
+                table: "StationPasses",
+                column: "CarId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_StationPasses_TollingStationId",
+                table: "StationPasses",
+                column: "TollingStationId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_TaxFeePerHours_CityId",
                 table: "TaxFeePerHours",
                 column: "CityId");
@@ -307,24 +340,14 @@ namespace Infrastructure.Migrations
                 column: "YearId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TaxPaids_CarId",
-                table: "TaxPaids",
-                column: "CarId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TaxPaids_TollingStationId",
-                table: "TaxPaids",
-                column: "TollingStationId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_TollFreeVehicles_CarId",
-                table: "TollFreeVehicles",
-                column: "CarId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_TollFreeVehicles_CityId",
                 table: "TollFreeVehicles",
                 column: "CityId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_TollFreeVehicles_VehicleCategoryId",
+                table: "TollFreeVehicles",
+                column: "VehicleCategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_TollingStations_CityId",
@@ -342,13 +365,19 @@ namespace Infrastructure.Migrations
                 name: "MaximumTaxes");
 
             migrationBuilder.DropTable(
+                name: "StationPasses");
+
+            migrationBuilder.DropTable(
                 name: "TaxFeePerHours");
 
             migrationBuilder.DropTable(
-                name: "TaxPaids");
+                name: "TollFreeVehicles");
 
             migrationBuilder.DropTable(
-                name: "TollFreeVehicles");
+                name: "Cars");
+
+            migrationBuilder.DropTable(
+                name: "TollingStations");
 
             migrationBuilder.DropTable(
                 name: "Currencies");
@@ -357,16 +386,10 @@ namespace Infrastructure.Migrations
                 name: "Years");
 
             migrationBuilder.DropTable(
-                name: "TollingStations");
-
-            migrationBuilder.DropTable(
-                name: "Cars");
+                name: "VehicleCategories");
 
             migrationBuilder.DropTable(
                 name: "Cities");
-
-            migrationBuilder.DropTable(
-                name: "VehicleCategories");
 
             migrationBuilder.DropTable(
                 name: "Countries");
