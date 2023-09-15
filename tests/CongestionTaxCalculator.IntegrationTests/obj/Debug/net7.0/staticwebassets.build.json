@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "o71OdjeHUvtsAw/c/b63YcVIqjqTo89F8V3XpYWUMsI=",
+  "Source": "CongestionTaxCalculator.IntegrationTests",
+  "BasePath": "_content/CongestionTaxCalculator.IntegrationTests",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\PROJECTS\\Fintranet\\CongestionTaxCalculator\\src\\Api\\Api.csproj",
+      "Version": 2,
+      "Source": "Api",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
