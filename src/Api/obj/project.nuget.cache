@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "WcPcDUBfTu6YpmTF+ciOSo/r9ClfdEIS4MrU7+Z1EIdOgQ75Z4Y5/+ej84+AWOicJVOa/pltFCqSKfe4vmTqEQ==",
+  "dgSpecHash": "2zoh2R3bsPXWjPyNBTcXtgPChngwNV5fhViBFLYnRdD4NV+DoGNPFSeDEBvEjU/RRPXI42Zwc+c4zED1s2ykpA==",
   "success": true,
   "projectFilePath": "C:\\PROJECTS\\Fintranet\\CongestionTaxCalculator\\src\\Api\\Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",

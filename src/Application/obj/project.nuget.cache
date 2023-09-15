@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "zCYn+Z7VsaxBSLzzAEl1riFiqYwSqFTQhBjxC3mj1ozBEbPrTjPSr8RQJ+r7V5Qgpba6Bfg29RJSyQQO0Cndkg==",
+  "dgSpecHash": "hEPbSs2VGoJ+cnlyRPYjc2abYjPAqQVkWIwP7N03ZYwbyIC7eZcdNMa0zMvE4MJDksK4PoajdCUlZvwhPpJJ7w==",
   "success": true,
   "projectFilePath": "C:\\PROJECTS\\Fintranet\\CongestionTaxCalculator\\src\\Application\\Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.7.1\\fluentvalidation.dependencyinjectionextensions.11.7.1.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\mediatr\\12.1.1\\mediatr.12.1.1.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.10\\microsoft.entityframeworkcore.7.0.10.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\7.0.10\\microsoft.entityframeworkcore.abstractions.7.0.10.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\7.0.10\\microsoft.entityframeworkcore.analyzers.7.0.10.nupkg.sha512",

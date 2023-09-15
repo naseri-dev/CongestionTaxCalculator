@@ -27,11 +27,7 @@ public static class SeedData
             if (!dbContext.Countries.Any())
             {
                 Guid countryId = Guid.NewGuid();
-                dbContext.Countries.Add(new Country
-                {
-                    Id = countryId,
-                    Name = "Sweden"
-                });
+                dbContext.Countries.Add(new Country(countryId, "Sweden"));
                 Guid cityId = Guid.NewGuid();
                 dbContext.Cities.Add(new City
                 {

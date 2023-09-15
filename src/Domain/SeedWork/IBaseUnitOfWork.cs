@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.SeedWork
+﻿namespace Domain.SeedWork
 {
     public interface IBaseUnitOfWork
     {
+        Task Commit();
+        void Rollback();
     }
 }

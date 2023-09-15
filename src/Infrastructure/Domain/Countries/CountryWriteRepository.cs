@@ -5,6 +5,6 @@ namespace Infrastructure.Domain.Countries
 {
     public class CountryWriteRepository : BaseGenericRepository<Country>, ICountryWriteRepository
     {
-        public CountryWriteRepository(DbContext dbContext) : base(dbContext) { }
+        public CountryWriteRepository(AppDbContext dbContext) : base(dbContext) { }
     }
 }

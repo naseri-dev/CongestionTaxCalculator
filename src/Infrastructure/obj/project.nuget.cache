@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "oY/z8SOcSvdB9Iysr6ytF7bM1F0HWkcB8Hw70J6Su1Pem/R3C0clzjil24/uX1T51K2coZYSaX18eEAOy0qpiQ==",
+  "dgSpecHash": "94z4DlRI8GUG4pPAc5NQIZ219k3zfG+Oe7zY4UcTsn3zwbROLC/HwQA6+LeRnop3lmhwFJFNj4p5XRdZQWUJKA==",
   "success": true,
   "projectFilePath": "C:\\PROJECTS\\Fintranet\\CongestionTaxCalculator\\src\\Infrastructure\\Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\CafeStock.ir\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\CafeStock.ir\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
