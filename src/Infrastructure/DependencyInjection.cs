@@ -1,6 +1,8 @@
 ﻿using Domain;
+using Domain.Entities.Cities;
 using Domain.Entities.Countries;
 using Domain.SeedWork;
+using Infrastructure.Domain.Cities;
 using Infrastructure.Domain.Countries;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +25,9 @@ public static class DependencyInjection
 
         services.AddScoped<ICountryReadRepository, CountryReadRepository>();
         services.AddScoped<ICountryWriteRepository, CountryWriteRepository>();
+        services.AddScoped<ICityReadRepository, CityReadRepository>();
+        services.AddScoped<ICityWriteRepository, CityWriteRepository>();
+
         services.AddScoped<IReadUnitOfWork, ReadUnitOfWork>();
         services.AddScoped<IWriteUnitOfWork, WriteUnitOfWork>();
 

@@ -7,7 +7,7 @@ namespace Infrastructure.Domain.Cities
     public class CityReadRepository : BaseGenericReadRepository<City>, ICityReadRepository
     {
         private readonly IMapper _mapper;
-        public CityReadRepository(DbContext dbContext, IMapper mapper) : base(dbContext)
+        public CityReadRepository(AppDbContext dbContext, IMapper mapper) : base(dbContext)
         {
             _mapper = mapper;
         }

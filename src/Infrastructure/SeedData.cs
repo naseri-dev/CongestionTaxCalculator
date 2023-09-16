@@ -30,13 +30,10 @@ public static class SeedData
             {
                 Guid countryId = Guid.NewGuid();
                 dbContext.Countries.Add(new Country(countryId, "Sweden"));
+
                 Guid cityId = Guid.NewGuid();
-                dbContext.Cities.Add(new City
-                {
-                    Id = cityId,
-                    CountryId = countryId,
-                    Name = "Gothenburg"
-                });
+                dbContext.Cities.Add(new City(cityId, "Gothenburg", countryId));
+
                 Guid yearId = Guid.NewGuid();
                 dbContext.Years.Add(new Year
                 {
