@@ -1,7 +1,6 @@
-﻿using Application.Cars.Queries;
-using MediatR;
+﻿using MediatR;
 
-namespace Application.Countries.Queries
+namespace Application.Cars.Queries
 {
     public record GetCongestionTaxQuery(
         Guid CarId,

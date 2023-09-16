@@ -1,11 +1,10 @@
-﻿using Application.Cars.Queries;
-using AutoMapper;
+﻿using AutoMapper;
 using Domain;
 using Domain.Entities.TaxFeePerHours.Dtos;
 using Domain.SeedWork;
 using MediatR;
 
-namespace Application.Countries.Queries
+namespace Application.Cars.Queries
 {
     public class GetCongestionTaxQueryHandler : IRequestHandler<GetCongestionTaxQuery, CongestionTaxResult>
     {

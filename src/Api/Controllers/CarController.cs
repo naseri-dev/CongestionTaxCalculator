@@ -1,7 +1,5 @@
 ﻿using Application.Cars.Queries;
-using Application.Countries.Commands;
-using Application.Countries.Queries;
-using Domain.Entities.Countries.Dtos;
+using Domain.Entities.Cars.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,6 +14,13 @@ namespace Api.Controllers
         public CarController(IMediator mediator)
         {
             _mediator = mediator;
+        }
+
+        [HttpGet()]
+        public async Task<ActionResult<List<CarDto>>> Get()
+        {
+            var dto = await _mediator.Send(new GetCarQuery());
+            return Ok(dto);
         }
 
         [HttpPost("get-congestion-tax")]

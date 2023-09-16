@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="Cars\Commands\" />
     <Folder Include="Cities\Commands\" />
-    <Folder Include="Cities\Queries\" />
     <Folder Include="Currencies\Commands\" />
     <Folder Include="Currencies\Queries\" />
     <Folder Include="Holidays\Commands\" />
@@ -34,7 +33,6 @@
     <Folder Include="TollingStations\Commands\" />
     <Folder Include="TollingStations\Queries\" />
     <Folder Include="VehicleCategories\Commands\" />
-    <Folder Include="VehicleCategories\Queries\" />
     <Folder Include="Years\Commands\" />
     <Folder Include="Years\Queries\" />
   </ItemGroup>
